@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../db2-back"
+		},
+		{
+			"path": "../sketchando-rework"
+		},
+		{
+			"path": "../gabriel"
+		},
+		{
+			"path": "../base-de-datos-frontend"
+		}
+	],
+	"remoteAuthority": "wsl+Ubuntu-20.04",
+	"settings": {}
+}
