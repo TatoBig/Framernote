@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import AnimatedLogo from 'components/core/AnimatedLogo'
+import AnimatedLogo from 'components/animation/AnimatedLogo'
 
 const sidebar = {
   closed: (height = 1000) => ({
@@ -9,7 +9,7 @@ const sidebar = {
   open: {
     clipPath: 'circle(0px at 50% 50%)',
     transition: {
-      delay: 2.5,
+      delay: 1.0,
       type: 'spring',
       stiffness: 400,
       damping: 40
@@ -21,9 +21,7 @@ const home = () => {
   const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsVisible(false)
-    }, 1000)
+    setIsVisible(false)
   }, [])
 
   return (

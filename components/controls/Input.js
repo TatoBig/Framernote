@@ -6,7 +6,8 @@ const Input = (props) => {
     name,
     placeholder,
     type,
-    error
+    error,
+    customError = ''
   } = props
   return (
     <div>
@@ -16,7 +17,7 @@ const Input = (props) => {
         type={type} {...register(name)}
       />
       <h6 className="text-xs h-2 mb-4 ml-1 font-semibold">
-        {error?.message}
+        {error?.message} {customError}
       </h6>
     </div>
   )

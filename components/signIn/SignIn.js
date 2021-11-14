@@ -1,12 +1,12 @@
 import { motion, useCycle } from 'framer-motion'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/dist/client/router'
+import { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import Button from 'components/core/Button'
-import Input from 'components/core/Input'
-import { useRouter } from 'next/dist/client/router'
-import AnimatedLogo from '../AnimatedLogo'
-import { useState } from 'react'
+import AnimatedLogo from 'components/animation/AnimatedLogo'
+import Button from 'components/controls/Button'
+import Input from 'components/controls/Input'
 
 const sidebar = {
   open: (height = 1000) => ({
