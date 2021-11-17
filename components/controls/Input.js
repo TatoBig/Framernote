@@ -7,7 +7,8 @@ const Input = (props) => {
     placeholder,
     type,
     error,
-    customError = ''
+    customError = '',
+    removeMargin = false
   } = props
   return (
     <div>
@@ -16,7 +17,7 @@ const Input = (props) => {
         placeholder={placeholder}
         type={type} {...register(name)}
       />
-      <h6 className="text-xs h-2 mb-4 ml-1 font-semibold">
+      <h6 className={`text-xs h-2 ${removeMargin ? '' : 'mb-4'} ml-1 font-semibold`}>
         {error?.message} {customError}
       </h6>
     </div>

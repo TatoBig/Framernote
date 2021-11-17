@@ -1,39 +1,73 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { useForm, useWatch } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import Button from 'components/controls/Button'
 import Input from 'components/controls/Input'
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { gql, useMutation } from '@apollo/client'
+// eslint-disable-next-line no-unused-vars
+import firebase from 'services/Firebase'
 
 const schema = yup.object().shape({
-  username: yup.string().required('Debe ingresar un nombre de usuario'),
-  password: yup.string().required('Debe ingresar una contraseña'),
-  repeat: yup.string().required('Se debe repetir la contraseña')
+  email: yup.string().required('Debe ingresar un correo electrónico'),
+  password: yup.string().required('Debe ingresar una contraseña')
 })
 
+const CREATE_USER = gql`
+  mutation Mutation($userInput: UserInput) {
+    createUser(userInput: $userInput) {
+      _id
+    }
+  }
+`
+
 const SignUp = () => {
-  const { register, handleSubmit, formState: { errors }, control } = useForm({
+  const [createUser, { loading, data }] = useMutation(CREATE_USER)
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema)
   })
 
-  const repeat = useWatch({
-    name: 'repeat',
-    control: control
-  })
-
-  const [customError, setCustomError] = useState(null)
-
   useEffect(() => {
-    setCustomError('')
-  }, [repeat])
+    if (data?.createUser?._id) {
+      setLoginError('Cuenta creada correctamente')
+      reset()
+    }
+  }, [data])
+
+  const getMessage = (code) => {
+    switch (code) {
+      case 'auth/weak-password':
+        return 'Contraseña debe tener mínimo 6 caracteres'
+      case 'auth/email-already-in-use':
+        return 'Este correo ya esta actualmente en uso'
+      default:
+        break
+    }
+  }
+
+  const [loginError, setLoginError] = useState('')
 
   const onSubmit = (data) => {
-    if (data.repeat !== data.password) {
-      setCustomError('Las contraseñas no coinciden')
-    } else {
-      console.log(data)
-    }
+    setLoginError('')
+    const auth = getAuth()
+    createUserWithEmailAndPassword(auth, data.email, data.password)
+      .then((userCredential) => {
+        const user = userCredential.user
+        createUser({
+          variables: {
+            userInput: {
+              email: user.email,
+              id: user.uid
+            }
+          }
+        })
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        setLoginError(getMessage(errorCode))
+      })
   }
 
   return (
@@ -52,26 +86,22 @@ const SignUp = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           register={register}
-          name="username"
-          placeholder="Usuario"
-          error={errors.username}
+          name="email"
+          type="email"
+          placeholder="Correo"
+          error={errors.email}
         />
         <Input
           register={register}
           name="password"
           placeholder="Contraseña"
-          type="password"
           error={errors.password}
-        />
-        <Input
-          register={register}
-          name="repeat"
-          placeholder="Repetir contraseña"
           type="password"
-          error={errors.repeat}
-          customError={customError}
         />
-        <Button text="Registrarse" />
+        <h6 className="text-xs h-2 font-semibold -mt-4 mb-4">
+          {loginError}
+        </h6>
+        <Button text="Registrarse" loading={loading} />
       </form>
     </motion.div>
   )
