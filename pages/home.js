@@ -39,7 +39,6 @@ const GET_USER_DATA = gql`
         description
         title
       }
-      
       createdAt
       updatedAt
     }
@@ -95,7 +94,7 @@ const home = () => {
     <Fragment>
       <Head>
         <title>Framernote</title>
-        <meta name="Framernote" content="A note app made with Framer" />
+        <meta name="Framernote" content="A note app made with Framer Motion" />
         <link rel="icon" href="/icon.ico" />
       </Head>
       <motion.div
@@ -107,19 +106,19 @@ const home = () => {
       <AnimatedLogo isVisible={isVisible} initial="open" />
 
       <div
-        className="mx-32 mt-4"
+        className="md:mx-32 mt-4 pb-20"
         onClick={() => setOpen(false)}
       >
         <Headerhome delay={1.6} username={username} logout={logout} id={id}/>
 
-        <div className="mt-4 w-full h-auto flex flex-wrap" ref={constraintsRef}>
+        <div className="mt-4 w-full h-auto flex flex-wrap justify-center md:justify-start" ref={constraintsRef}>
           {tasks.length > 0 && tasks.map((task, index) => (
             <Taskcard key={index} task={task} refetch={refetch} id={id} index={index} dragConstraints={constraintsRef} />
           ))}
         </div>
       </div>
 
-      <div className="absolute bottom-16 right-16 z-0 flex flex-col justify-center" >
+      <div className="fixed bottom-8 right-8 md:bottom-16 md:right-16 z-0 flex flex-col justify-center" >
         <Tooltip text="Nueva tarea" to="left">
           <motion.button
             className=" bg-gray-200 bg-transparent flex items-center w-16 h-16 justify-center rounded-full shadow-md"

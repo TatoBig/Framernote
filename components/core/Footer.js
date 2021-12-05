@@ -19,13 +19,13 @@ const container = {
 const Footer = () => {
   return (
     <motion.div
-      className="md:w-full w-max pl-8 pr-16 md:px-0 overflow-visible fixed bottom-0 bg-gray-200 bg-cover h-16 z-0 flex flex-row items-center justify-center space-x-4"
+      className="md:w-full w-max p-2 pr-2 md:px-0 overflow-visible fixed bottom-0 bg-gray-200 bg-cover h-16 z-0 flex flex-row items-center justify-center space-x-4"
       animate="show"
       initial="hidden"
       variants={container}
       dragPropagation
       drag="x"
-      dragConstraints={{ left: -220, right: 0 }}
+      dragConstraints={{ left: -140, right: 0 }}
       dragElastic={0}
     >
       <motion.div

@@ -21,22 +21,22 @@ const Headerhome = ({ delay = 1.1, username, logout }) => {
 
   return (
     <motion.div
-      className="bg-gray-200 p-8 rounded-xl flex justify-between items-center shadow-md"
+      className="mx-4 md:mx-0 bg-gray-200 md:p-8 pt-8 px-4 pb-4 rounded-xl flex flex-col md:flex-row md:justify-between items-center shadow-md"
       initial="inherit"
       animate="color"
       variants={colors}
       transition={{ duration: 1, delay: delay }}
     >
-      <div className="text-2xl flex-col ">
-        <div className="font-semibold">
+      <div className="md:flex hidden text-2xl md:flex-col order-2 md:order-1">
+        <div className="font-semibold mr-2 md:mr-0">
           Bienvenido
         </div>
         <div className="font-thin">
           {username}
         </div>
       </div>
-      <div>
-        <div className="flex justify-center text-6xl items-center">
+      <div className="order-1 md:order-2">
+        <div className="flex justify-center text-5xl md:text-6xl items-center">
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: -30 }}
@@ -73,12 +73,30 @@ const Headerhome = ({ delay = 1.1, username, logout }) => {
       </div>
       <motion.button
         onClick={() => logout()}
-        className="px-2 py-0.5 rounded-xl text-xl hover:bg-gray-300"
+        className="md:block hidden order-3 md:w-auto px-2 py-0.5 rounded-xl text-xl bg-gray-300 hover:bg-gray-400"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         Salir
       </motion.button>
+      <div className="order-1 px-2 w-full mt-2 md:hidden flex justify-between items-center">
+        <motion.button
+          onClick={() => logout()}
+          className="order-3 md:w-auto px-2 py-0.5 rounded-xl text-xl bg-gray-300 hover:bg-gray-400"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          Salir
+        </motion.button>
+        <div className="flex text-xl md:flex-col order-2 md:order-1">
+          <div className="font-semibold mr-2 md:mr-0">
+            Bienvenido
+          </div>
+          <div className="font-thin">
+            {username}
+          </div>
+        </div>
+      </div>
     </motion.div>
   )
 }

@@ -11,7 +11,7 @@ export default function Home () {
       <div className="md:mx-32 mt-4 pb-20">
         <Head>
           <title>Framernote</title>
-          <meta name="Framernote" content="A note app made with Framer" />
+          <meta name="Framernote" content="A note app made with Framer Motion" />
           <link rel="icon" href="/icon.ico" />
         </Head>
 

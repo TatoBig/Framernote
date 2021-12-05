@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 export const loginSlice = createSlice({
   name: 'login',
   initialState: {
-    logged: false,
-    username: undefined,
+    logged: true,
+    username: 'Santiago Navas',
     id: undefined
   },
   reducers: {
