@@ -8,7 +8,7 @@ import { Fragment } from 'react'
 export default function Home () {
   return (
     <Fragment>
-      <div className="mx-32 mt-4">
+      <div className="md:mx-32 mt-4 pb-20">
         <Head>
           <title>Framernote</title>
           <meta name="Framernote" content="A note app made with Framer" />
@@ -18,14 +18,14 @@ export default function Home () {
         <Header />
 
         <div
-          className="flex flex-row mt-2 justify-around"
+          className="md:flex md:flex-row mt-2 md:justify-around mx-4 md:mx-0"
         >
-          <div className="flex flex-col w-1/3 mt-2">
+          <div className="flex flex-col md:w-1/3 mt-2">
             <SignIn />
             <SignUp />
           </div>
 
-          <img src="./notes.gif" className="rounded" />
+          <img src="./notes.gif" className="rounded md:block hidden" />
         </div>
       </div>
 

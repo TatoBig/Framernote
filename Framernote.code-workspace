@@ -5,21 +5,6 @@
 		},
 		{
 			"path": "../db2-back"
-		},
-		{
-			"path": "../sketchando-rework"
-		},
-		{
-			"path": "../gabriel"
-		},
-		{
-			"path": "../base-de-datos-frontend"
-		},
-		{
-			"path": "../framernote-back"
-		},
-		{
-			"path": "../platzi-graphQL"
 		}
 	],
 	"remoteAuthority": "wsl+Ubuntu-20.04",

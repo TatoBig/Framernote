@@ -74,6 +74,8 @@ const SignIn = () => {
   } = useSelector(state => state.login)
 
   const [loginError, setLoginError] = useState('')
+  const [isOpen, toggleOpen] = useCycle(false, true)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     if (logged) {
@@ -108,9 +110,6 @@ const SignIn = () => {
       }))
     }
   }, [googleData])
-
-  const [isOpen, toggleOpen] = useCycle(false, true)
-  const [isVisible, setIsVisible] = useState(false)
 
   const onSubmit = (data) => {
     setLoginError('')
@@ -147,7 +146,7 @@ const SignIn = () => {
 
   return (
     <motion.div
-      className="p-8 bg-card  mr-8 rounded-xl mt-4 flex flex-col w-full shadow-md"
+      className="p-8 bg-card  md:mr-8 rounded-xl mt-4 flex flex-col w-full shadow-md"
       initial={{ borderWidth: '8px', borderColor: '#EEEEEE' }}
       animate={{ borderWidth: '8px', borderColor: '#2B2B33' }}
       transition={{ duration: 1, delay: 1.1 }}

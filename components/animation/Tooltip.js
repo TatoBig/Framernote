@@ -25,8 +25,9 @@ const Tooltip = (props) => {
       onMouseLeave={() => setIsVisible(false)}
       className="flex flex-col-reverse items-center"
     >
-
-      {children}
+      <div>
+        {children}
+      </div>
       <AnimatePresence>
         {isVisible && (
           <motion.div

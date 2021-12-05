@@ -1,16 +1,16 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { gql, useLazyQuery } from '@apollo/client'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useRouter } from 'next/dist/client/router'
-import { useDispatch, useSelector } from 'react-redux'
-import AnimatedLogo from 'components/animation/AnimatedLogo'
-import Headerhome from 'components/core/Headerhome'
 import { logoutRedux } from 'store/login'
-import Tooltip from 'components/animation/Tooltip'
-import Taskcard from 'components/core/Taskcard'
-import Modal from 'components/animation/Modal'
+import { useDispatch, useSelector } from 'react-redux'
+import { useRouter } from 'next/dist/client/router'
+import AnimatedLogo from 'components/animation/AnimatedLogo'
 import Createtask from 'components/core/Createtask'
 import Head from 'next/head'
+import Headerhome from 'components/core/Headerhome'
+import Modal from 'components/animation/Modal'
+import Taskcard from 'components/core/Taskcard'
+import Tooltip from 'components/animation/Tooltip'
 
 const sidebar = {
   closed: (height = 1000) => ({
@@ -110,7 +110,7 @@ const home = () => {
         className="mx-32 mt-4"
         onClick={() => setOpen(false)}
       >
-        <Headerhome delay={1.6} username={username} logout={logout} />
+        <Headerhome delay={1.6} username={username} logout={logout} id={id}/>
 
         <div className="mt-4 w-full h-auto flex flex-wrap" ref={constraintsRef}>
           {tasks.length > 0 && tasks.map((task, index) => (
@@ -120,22 +120,6 @@ const home = () => {
       </div>
 
       <div className="absolute bottom-16 right-16 z-0 flex flex-col justify-center" >
-        {/* <AnimatePresence>
-          {open && (
-            <Tooltip text="Crear" to="left">
-              <motion.button
-                className="bg-gray-200 shadow-md w-16 h-16 rounded-full"
-                animate={{ scale: 1, y: -50 }}
-                initial={{ scale: 0, y: 0 }}
-                transition={{ duration: 0.5 }}
-                exit={{ scale: 0, y: 0 }}
-              >
-                Test
-              </motion.button>
-            </Tooltip>
-          )}
-        </AnimatePresence> */}
-
         <Tooltip text="Nueva tarea" to="left">
           <motion.button
             className=" bg-gray-200 bg-transparent flex items-center w-16 h-16 justify-center rounded-full shadow-md"

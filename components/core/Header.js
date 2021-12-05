@@ -21,13 +21,13 @@ const Header = ({ delay = 1.1 }) => {
 
   return (
     <motion.div
-      className="bg-gray-200 p-8 rounded-xl shadow-md"
+      className="mx-4 md:mx-0 bg-gray-200 p-8 rounded-xl shadow-md"
       initial="inherit"
       animate="color"
       variants={colors}
       transition={{ duration: 1, delay: delay }}
     >
-      <div className="flex justify-center text-6xl items-center">
+      <div className="flex justify-center text-5xl md:text-6xl items-center">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -30 }}
