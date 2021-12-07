@@ -6,7 +6,7 @@ import SignUp from 'components/signIn/SignUp'
 import Head from 'next/head'
 import { Fragment } from 'react'
 
-export default function Home() {
+export default function Home () {
   return (
     <Fragment>
       <div className="md:mx-32 mt-4 pb-20 md:pb-0">

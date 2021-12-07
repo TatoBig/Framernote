@@ -200,7 +200,7 @@ const Information = () => {
             strokeWidth={14}
             stroke="#000000"
             fill="none"
-            className="w-auto h-12"
+            className="w-auto h-12 cursor-pointer"
             initial="hidden"
             whileInView="draw"
             viewport={{ once: true }}
@@ -224,7 +224,7 @@ const Information = () => {
             initial="hidden"
             whileInView="draw"
             viewport={{ once: true }}
-            className="ml-4 w-auto h-12"
+            className="ml-4 w-auto h-12 cursor-pointer"
             onClick={() => router.replace('https://www.linkedin.com/in/santiago-navas-682757219/')}
           >
             <motion.path
