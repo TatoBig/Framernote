@@ -6,7 +6,7 @@ import SignUp from 'components/signIn/SignUp'
 import Head from 'next/head'
 import { Fragment } from 'react'
 
-export default function Home () {
+export default function Home() {
   return (
     <Fragment>
       <div className="md:mx-32 mt-4 pb-20 md:pb-0">
@@ -29,8 +29,8 @@ export default function Home () {
             </div>
           </div>
           <div className="flex-col md:flex hidden items-center">
-            <img src="./notes.gif" className="rounded w-4/5 h-auto ml-20" />
-            <div>
+            <img src="./notes.gif" className="rounded w-4/5 h-auto" />
+            <div className="md:pb-20">
               <Information />
             </div>
           </div>
