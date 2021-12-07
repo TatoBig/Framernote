@@ -28,7 +28,6 @@ const Modal = ({ handleClose, children }) => {
       <AnimatePresence>
         <motion.div
           onClick={(e) => e.stopPropagation()}
-          drag
           className="h-auto w-64 m-auto p-8 rounded-lg flex items-center flex-col bg-white"
           variants={drop}
           initial="hidden"

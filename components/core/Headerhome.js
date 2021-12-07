@@ -21,7 +21,7 @@ const Headerhome = ({ delay = 1.1, username, logout }) => {
 
   return (
     <motion.div
-      className="mx-4 md:mx-0 bg-gray-200 md:p-8 pt-8 px-4 pb-4 rounded-xl flex flex-col md:flex-row md:justify-between items-center shadow-md"
+      className="mx-4 md:mx-0 bg-gray-200 md:p-8 pt-8 px-4 pb-4 rounded-xl shadow-md md:flex flex-col md:flex-row md:justify-between md:items-center "
       initial="inherit"
       animate="color"
       variants={colors}
@@ -35,7 +35,7 @@ const Headerhome = ({ delay = 1.1, username, logout }) => {
           {username}
         </div>
       </div>
-      <div className="order-1 md:order-2">
+      <div className="order-1 md:order-2 px-4 md:px-0">
         <div className="flex justify-center text-5xl md:text-6xl items-center">
           <motion.div
             animate={{ opacity: 1, y: 0 }}

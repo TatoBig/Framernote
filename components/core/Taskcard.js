@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form'
 import { Fragment, useEffect, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import Input from 'components/controls/Input'
 import Tooltip from 'components/animation/Tooltip'
 import { gql, useMutation } from '@apollo/client'
 import LargeInput from 'components/controls/LargeInput'
@@ -107,24 +106,32 @@ const Taskcard = ({ task = {}, refetch, id, index, dragConstraints }) => {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <motion.div
-          className="w-64 bg-card shadow-md p-4">
-          <h1 className="flex justify-between items-center text-xl font-semibold">
-            {
-              edit
-                ? <Input
-                  register={register}
-                  name="title"
-                  error={errors.title}
-                  removeMargin
-                />
-                : task.title
-            }
-            <Tooltip text="Editar">
-              <button onClick={() => setEdit(true)} type="button">
-                <img src="./logo.png" className="w-5 h-5" />
-              </button>
-            </Tooltip>
-          </h1>
+          className="w-64 bg-card shadow-md p-4"
+        >
+          <div className="flex items-center">
+            <h3 className=" text-xl font-semibold w-9/10">
+              {
+                edit
+                  ? <LargeInput
+                    name="title"
+                    removeMargin
+                    error={errors.title}
+                    defaultText={task.title}
+                    set={setValue}
+                  />
+                  : task.title
+              }
+            </h3>
+            <div className="w-1/10 h-auto">
+              {!edit &&
+                <Tooltip text="Editar">
+                  <button onClick={() => setEdit(true)} type="button">
+                    <img src="./logo.png" />
+                  </button>
+                </Tooltip>
+              }
+            </div>
+          </div>
           <div className="w-full h-1 bg-gray-300 mb-2" />
           <div className="text-md">
             {

@@ -56,7 +56,7 @@ const Information = () => {
 
   return (
     <div
-      className="mt-4 w-full h-full md:hidden flex flex-col justify-center items-center p-2"
+      className="mt-4 w-full h-full flex flex-col justify-center items-center p-2"
     >
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"

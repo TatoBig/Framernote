@@ -56,7 +56,7 @@ const AnimatedLogo = (props) => {
           exit="closed"
           transition={{ duration: 1.5 }}
           variants={logoAnimation}
-          className="absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         >
 
           <div className="flex justify-center text-6xl items-center">

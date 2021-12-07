@@ -24,10 +24,16 @@ export default function Home () {
           <div className="flex flex-col md:w-1/3 mt-2">
             <SignIn />
             <SignUp />
-            <Information />
+            <div className="md:hidden block">
+              <Information />
+            </div>
           </div>
-
-          <img src="./notes.gif" className="rounded md:block hidden" />
+          <div className="flex-col md:flex hidden items-center">
+            <img src="./notes.gif" className="rounded w-4/5 h-auto ml-20" />
+            <div>
+              <Information />
+            </div>
+          </div>
         </div>
       </div>
 

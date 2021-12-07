@@ -1,11 +1,10 @@
+import { gql, useMutation } from '@apollo/client'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import Button from 'components/controls/Button'
-import Input from 'components/controls/Input'
-import LargeInput from 'components/controls/LargeInput'
 import Checkbox from 'components/controls/Checkbox'
-import { gql, useMutation } from '@apollo/client'
+import LargeInput from 'components/controls/LargeInput'
 
 const CREATE_TASK = gql`
   mutation Mutation($taskInput: TaskInput) {
@@ -46,11 +45,12 @@ const Createtask = ({ handleClose, refetch, id }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        register={register}
+      <LargeInput
         name="title"
-        placeholder="Titulo"
+        removeMargin
         error={errors.title}
+        set={setValue}
+        placeholder="Título"
       />
       <LargeInput
         name="description"

@@ -139,6 +139,7 @@ const SignIn = () => {
           uid: user.uid
         }
       })
+      console.log(result.user)
     } catch (error) {
       console.log(error)
     }
@@ -182,7 +183,7 @@ const SignIn = () => {
         initial={false}
         animate={isOpen ? 'open' : 'closed'}
       >
-        <motion.div className="absolute bg-gray-200 w-full h-full top-0 right-0 bottom-0 z-10" variants={sidebar} />
+        <motion.div className="fixed bg-gray-200 w-full h-full top-0 right-0 bottom-0 z-10" variants={sidebar} />
       </motion.div>
 
       <AnimatedLogo isVisible={isVisible} initial="closed" animate="open" />

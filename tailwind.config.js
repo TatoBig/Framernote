@@ -7,6 +7,10 @@ module.exports = {
       colors: {
         card: '#EEEEEE',
         border: '#2B2B33'
+      },
+      spacing: {
+        '1/10': '10%',
+        '9/10': '90%'
       }
     }
   },
