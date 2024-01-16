@@ -9,7 +9,7 @@
     "lint:fix": "eslint . --fix"
   },
   "engines": {
-    "node": ">=20.11.0"
+    "node": "18.x"
   },
   "dependencies": {
     "@apollo/client": "^3.4.17",
